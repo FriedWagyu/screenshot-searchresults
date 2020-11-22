@@ -59,34 +59,7 @@ def getSogouScreenShoot(search):
     page.save_screenshot(search + "_Sogou" + ".png")
     page.close()
 
-listName = ["杨德勇",
-            "朱葛颖",
-            "崔洪杰",
-            "朱晓星",
-            "郭杰",
-            "薛军",
-            "朱霖",
-            "郭志宝",
-            "杜新",
-            "王立峰",
-            "远洋集团控股有限公司",
-            "耀胜发展有限公司",
-            "远洋亿家物业服务股份有限公司",
-            "中远酒店物业管理有限公司",
-            "YANG Deyong",
-            "ZHU Geying",
-            "CUI Hongjie",
-            "ZHU Xiaoxing",
-            "GUO Jie",
-            "XUE Jun",
-            "ZHU Lin",
-            "GUO Zhibao",
-            "DU Xin",
-            "WANG Lifeng",
-            "Sino-Ocean Group Holding Limited",
-            "Shine Wind Development Limited",
-            "Ocean Homeplus Property Service Corporation Limited",
-            "Zhongyuan Hotel Property Management Co Ltd"]
+listName = ["杨德勇"]
 
 listName2 = ["杜新"]
 

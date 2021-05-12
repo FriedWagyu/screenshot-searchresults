@@ -15,7 +15,7 @@ def chineseToUtf(a):
 
 
 def getBaiduScreenShoot(search):
-    page = webdriver.PhantomJS(executable_path="/Users/sai/Desktop/Screenshoot/phantomjs.exe")
+    page = webdriver.PhantomJS(executable_path="/Users/sai/Desktop/Screenshot-Google-Baidu-Search-Results-main/phantomjs.exe")
     page.get("https://www.baidu.com/s?wd=" + chineseToGbk(search) + "&usm=3&rsv_idx=2&rsv_page=1")
     time.sleep(random.randint(1, 3))
     page.set_window_size(1200, 800)
@@ -31,13 +31,13 @@ def getBaiduScreenShoot(search):
         except:
             break
         next.click()
-        time.sleep(random.randint(5, 9))
+        time.sleep(5)
 
     page.close()
 
 def getGoogleScreenShoot(search):
-    page = webdriver.PhantomJS(executable_path="/Users/sai/Desktop/Screenshoot/phantomjs.exe")
-    page.get("https://www.google.com/search?q=" + chineseToUtf(search) + "&num=100")
+    page = webdriver.PhantomJS(executable_path="/Users/sai/Desktop/Screenshot-Google-Baidu-Search-Results-main/phantomjs.exe")
+    page.get("https://www.google.com/search?q=" + chineseToUtf(search) + "&tbs=qdr:y3" + "&num=100")
     page.set_window_size(1200, 800)
     time.sleep(random.randint(1, 3))
     page.maximize_window()
@@ -59,10 +59,45 @@ def getSogouScreenShoot(search):
     page.save_screenshot(search + "_Sogou" + ".png")
     page.close()
 
-listName = ["杨德勇"]
+listName = ["eBeauty Holdings (Cayman) Limited",
+            "悠可集团",
+            "Chang Che Hang",
+            "Liu Jiaqi",
+            "Zhao Hanxi",
+            "Zhang Liyang",
+            "Wei Chun-Hsien",
+            "Chow Lok Mei Ki",
+            "Wong Long Yeung",
+            "Guo Xiaorong",
+            "Wang Genping",
+            "Wang Yew-Ton",
+            "Liu Jing",
+            "Ni Min",
+            "CITIC Capital Holdings Limited",
+            "Hangzhou UCO Cosmetics Co., Ltd",
+            "Hangzhou Youmei Beauty Co., Ltd",
+            "Hangzhou Meiba Technology Co., Ltd",
+            "Hangzhou Youyue Brands Management Co., Ltd",
+            "张子恒",
+            "刘佳琦",
+            "赵涵曦",
+            "张立阳",
+            "韦俊贤",
+            "周骆美琪",
+            "黄朗阳",
+            "郭晓蓉",
+            "汪艮平",
+            "刘竞",
+            "倪敏",
+            "中信资本",
+            "杭州悠可化妆品有限公司",
+            "杭州悠美美妆有限公司",
+            "杭州美巴科技有限公司",
+            "杭州悠悦品牌管理有限公司"]
 
-listName2 = ["杜新"]
+listName2 = [
+            "杭州美巴科技有限公司",
+            "杭州悠悦品牌管理有限公司"]
 
 for i in listName2:
-    getSogouScreenShoot(i)
-    time.sleep(random.randrange(5, 10))
+    getBaiduScreenShoot(i)

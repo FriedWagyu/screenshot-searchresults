@@ -1,7 +1,4 @@
-import os
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
+from selenium import webdriver  # selenium must be 3.0
 from urllib import parse
 import time
 import random
@@ -15,7 +12,7 @@ def chineseToUtf(a):
 
 
 def getBaiduScreenShoot(search):
-    page = webdriver.PhantomJS(executable_path="/Users/sai/Desktop/Screenshot-Google-Baidu-Search-Results-main/phantomjs.exe")
+    page = webdriver.PhantomJS(executable_path=r'C:\Users\sai\Desktop\screenshot-searchresults-main\phantomjs.exe')
     page.get("https://www.baidu.com/s?wd=" + chineseToGbk(search) + "&usm=3&rsv_idx=2&rsv_page=1")
     time.sleep(random.randint(1, 3))
     page.set_window_size(1200, 800)
@@ -36,7 +33,7 @@ def getBaiduScreenShoot(search):
     page.close()
 
 def getGoogleScreenShoot(search):
-    page = webdriver.PhantomJS(executable_path="/Users/sai/Desktop/Screenshot-Google-Baidu-Search-Results-main/phantomjs.exe")
+    page = webdriver.PhantomJS(executable_path=r'C:\Users\sai\Desktop\screenshot-searchresults-main\phantomjs.exe')
     page.get("https://www.google.com/search?q=" + chineseToUtf(search) + "&tbs=qdr:y3" + "&num=100")
     page.set_window_size(1200, 800)
     time.sleep(random.randint(1, 3))
@@ -45,59 +42,9 @@ def getGoogleScreenShoot(search):
     page.save_screenshot(search + "_Google" + ".png")
     page.close()
 
-def getSogouScreenShoot(search):
-    chromeOptions = Options()
-    chromeOptions.add_argument("--headless")
-    baseUrl = "http://m.sogou.com/"
-    page = webdriver.Chrome(executable_path="/Users/sai/Desktop/Screenshoot/chromedriver.exe", options=chromeOptions)
-    page.get(baseUrl)
-    time.sleep(random.randint(1, 5))
-    page.find_element_by_tag_name("input").send_keys(search)
-    page.find_element_by_class_name("qbtn-box").click()
-    time.sleep(random.randint(1, 5))
-    page.maximize_window()
-    page.save_screenshot(search + "_Sogou" + ".png")
-    page.close()
+text = open("list.txt", encoding = "utf-8")
+listName = [x.strip('\n') for x in text]
 
-listName = ["eBeauty Holdings (Cayman) Limited",
-            "悠可集团",
-            "Chang Che Hang",
-            "Liu Jiaqi",
-            "Zhao Hanxi",
-            "Zhang Liyang",
-            "Wei Chun-Hsien",
-            "Chow Lok Mei Ki",
-            "Wong Long Yeung",
-            "Guo Xiaorong",
-            "Wang Genping",
-            "Wang Yew-Ton",
-            "Liu Jing",
-            "Ni Min",
-            "CITIC Capital Holdings Limited",
-            "Hangzhou UCO Cosmetics Co., Ltd",
-            "Hangzhou Youmei Beauty Co., Ltd",
-            "Hangzhou Meiba Technology Co., Ltd",
-            "Hangzhou Youyue Brands Management Co., Ltd",
-            "张子恒",
-            "刘佳琦",
-            "赵涵曦",
-            "张立阳",
-            "韦俊贤",
-            "周骆美琪",
-            "黄朗阳",
-            "郭晓蓉",
-            "汪艮平",
-            "刘竞",
-            "倪敏",
-            "中信资本",
-            "杭州悠可化妆品有限公司",
-            "杭州悠美美妆有限公司",
-            "杭州美巴科技有限公司",
-            "杭州悠悦品牌管理有限公司"]
-
-listName2 = [
-            "杭州美巴科技有限公司",
-            "杭州悠悦品牌管理有限公司"]
-
-for i in listName2:
-    getBaiduScreenShoot(i)
+for i in listName:
+    #getBaiduScreenShoot(i)
+    getGoogleScreenShoot(i)

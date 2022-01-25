@@ -23,12 +23,12 @@ def getBaiduScreenShoot(search):
 
     for i in range(0, 10):
         page.save_screenshot(search + "_Baidu" + str(i) + ".png")
+        time.sleep(20)
         try:
             next = page.find_element_by_link_text("下一页 >")
         except:
             break
         next.click()
-        time.sleep(5)
 
     page.close()
 
@@ -46,5 +46,6 @@ text = open("list.txt", encoding = "utf-8")
 listName = [x.strip('\n') for x in text]
 
 for i in listName:
-    #getBaiduScreenShoot(i)
-    getGoogleScreenShoot(i)
+    getBaiduScreenShoot(i)
+    #getGoogleScreenShoot(i)
+    time.sleep(1000)
